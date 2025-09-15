@@ -39,13 +39,13 @@
 // Row0
 &kp ESC                     &kp N1      &kp N2       &kp N3        &kp N4         &kp N5      &kp N6      &kp N7      &kp N8        &kp N9        &kp N0        &kp MINUS
 // Row1
-&kp ZKHK /* 半/全角 */      &kp Q       &kp W         &kp E          &kp R        &kp T        &kp Y        &kp U        &kp I         &kp O         &kp P         &kp RBKT /* ▽ */
+&kp ZKHK       &kp Q       &kp W         &kp E          &kp R        &kp T        &kp Y        &kp U        &kp I         &kp O         &kp P         &kp RBKT 
 // Row2
-&kp TAB                     &kp A       &kp S       &kp D           &kp F           &kp G        &kp H     &kp J    &kp K    &kp L     &kp SEMI &kp APOS
+&kp TAB        &kp A       &kp S       &kp D           &kp F           &kp G        &kp H     &kp J    &kp K    &kp L     &kp SEMI &kp APOS
 // Row3
 &kp LSHIFT  &kp Z        &kp X        &kp C         &kp V          &kp B        &kp N        &kp M        &kp COMMA     &kp DOT        &kp SLASH      &kp RSHIFT
 // Row4 (thumbs) 左5 + 右3（合計8）
-        &kp ZKHK /* 半/全角 */  &mo SHIFT   &kp SPACE   &mo NAV    &kp MHEN /* 英数=IME Off */
+        &kp ZKHK   &mo SHIFT   &kp SPACE   &mo NAV    &kp MHEN /* 英数=IME Off */
                                                 &kp BACKSPACE   &kp ENTER   &kp LGUI
             >;
         };
@@ -54,11 +54,11 @@
         SHIFT {
             bindings = <
 // Row0（数字のシフト記号）
-&kp ESC /* ▽ */  &kp EXCL   &kp AT      &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR   &kp UNDERSCORE
+&kp ESC   &kp EXCL   &kp AT      &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR   &kp UNDERSCORE
 // Row1（▽: 文字は通常のまま。必要なら各キーを Shiftつき発火に差し替え）
-&trans             &kp Q /* ▽ */ &kp W /* ▽ */ &kp E /* ▽ */ &kp R /* ▽ */ &kp T /* ▽ */  &kp Y /* ▽ */ &kp U /* ▽ */ &kp I /* ▽ */ &kp O /* ▽ */ &kp P /* ▽ */ &kp LBKT /* ▽ */
+&trans             &kp Q  &kp W  &kp E  &kp R  &kp T   &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT 
 // Row2（▽）
-&kp DEL /* ▽ */   &kp A /* ▽ */ &kp S /* ▽ */ &kp D /* ▽ */ &kp F /* ▽ */ &kp G /* ▽ */  &kp H /* ▽ */ &kp J /* ▽ */ &kp K /* ▽ */ &kp L /* ▽ */ &kp COLON /* ▽ */ &kp DQT /* ▽ */
+&kp DEL    &kp A  &kp S  &kp D  &kp F  &kp G   &kp H  &kp J  &kp K  &kp L  &kp COLON  &kp DQT 
 // Row3（▽: 記号寄せ）
 &trans             &kp LESS_THAN  &kp PIPE  &kp MINUS  &kp GREATER_THAN  &kp BACKSLASH  &kp GRAVE  &kp UNDERSCORE  &kp SLASH  &kp TILDE  &kp SEMICOLON  &trans
 // Row4（親指）左5 + 右3

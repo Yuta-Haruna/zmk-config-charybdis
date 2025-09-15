@@ -9,13 +9,13 @@
 
 &mt {
     quick-tap-ms = <200>;
-    flavor = "tap-preferred";
+    flavor = "tap-preferred";   // ▽: hold-preferred/balanced も可
     tapping-term-ms = <170>;
 };
 
 &lt {
     quick-tap-ms = <200>;
-    flavor = "tap-preferred";
+    flavor = "tap-preferred";   // ▽
     tapping-term-ms = <170>;
 };
 
@@ -33,63 +33,71 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // ───────────────────────────── Layer 0: BASE ─────────────────────────────
         BASE {
             bindings = <
-&kp GRAVE   &kp N1       &kp N2         &kp N3      &kp N4        &kp N5   &kp N6            &kp N7        &kp N8      &kp N9           &kp N0          &kp MINUS
-&kp TAB     &kp Q        &kp W          &kp E       &kp R         &kp T               &kp Y  &kp U         &kp I       &kp O            &kp P           &kp EQUAL
-&kp ESC     &mt LCTRL A  &mt LALT S     &mt LGUI D  &mt LSHIFT F  &kp G               &kp H  &mt RSHIFT J  &mt RGUI K  &mt RALT L       &mt RCTRL SEMI  &kp APOS
-&kp LSHIFT  &lt 3 Z      &kp X          &kp C       &kp V         &kp B               &kp N  &kp M         &kp COMMA   &kp DOT          &lt 3 SLASH     &kp RSHIFT
-            &lt 1 TAB    &kp BACKSPACE  &kp LGUI    &kp SPACE     &kp DEL  &kp ENTER         &kp SPACE                 &lt 2 BACKSPACE
+// Row0
+&kp ESC                     &kp N1      &kp N2       &kp N3        &kp N4         &kp N5      &kp N6      &kp N7      &kp N8        &kp N9        &kp N0        &kp MINUS
+// Row1
+&kp ZKHK /* 半/全角 */      &kp Q       &kp W         &kp E          &kp R        &kp T        &kp Y        &kp U        &kp I         &kp O         &kp P         &kp RBKT /* ▽ */
+// Row2
+&kp TAB                     &kp A       &kp S       &kp D           &kp F           &kp G        &kp H     &kp J    &kp K    &kp L     &kp SEMI &kp APOS
+// Row3
+&kp LSHIFT  &kp Z        &kp X        &kp C         &kp V          &kp B        &kp N        &kp M        &kp COMMA     &kp DOT        &kp SLASH      &kp RSHIFT
+// Row4 (thumbs) 左5 + 右3（合計8）
+        &kp ZKHK /* 半/全角 */  &mo SHIFT   &kp SPACE   &mo NAV    &kp MHEN /* 英数=IME Off */
+                                                &kp BACKSPACE   &kp ENTER   &kp LGUI
             >;
         };
 
+        // ───────────────────────────── Layer 1: SHIFT（記号/大文字用） ─────────────────────────────
+        SHIFT {
+            bindings = <
+// Row0（数字のシフト記号）
+&kp ESC /* ▽ */  &kp EXCL   &kp AT      &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR   &kp UNDERSCORE
+// Row1（▽: 文字は通常のまま。必要なら各キーを Shiftつき発火に差し替え）
+&trans             &kp Q /* ▽ */ &kp W /* ▽ */ &kp E /* ▽ */ &kp R /* ▽ */ &kp T /* ▽ */  &kp Y /* ▽ */ &kp U /* ▽ */ &kp I /* ▽ */ &kp O /* ▽ */ &kp P /* ▽ */ &kp LBKT /* ▽ */
+// Row2（▽）
+&kp DEL /* ▽ */   &kp A /* ▽ */ &kp S /* ▽ */ &kp D /* ▽ */ &kp F /* ▽ */ &kp G /* ▽ */  &kp H /* ▽ */ &kp J /* ▽ */ &kp K /* ▽ */ &kp L /* ▽ */ &kp COLON /* ▽ */ &kp DQT /* ▽ */
+// Row3（▽: 記号寄せ）
+&trans             &kp LESS_THAN  &kp PIPE  &kp MINUS  &kp GREATER_THAN  &kp BACKSLASH  &kp GRAVE  &kp UNDERSCORE  &kp SLASH  &kp TILDE  &kp SEMICOLON  &trans
+// Row4（親指）左5 + 右3
+        &trans  &trans  &trans  &trans  &trans
+                                                &kp BACKSPACE   &kp ENTER   &trans
+            >;
+        };
+
+        // ───────────────────────────── Layer 2: NAV（ナビ/ファンクション/マウス） ─────────────────────────────
         NAV {
             bindings = <
-&kp F12          &kp F1          &kp F2           &kp F3             &kp F4           &kp F5    &kp F6                &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
-&trans           &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp UP             &kp EQUAL        &kp LBRC              &kp RBRC  &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
-&kp PRINTSCREEN  &kp INSERT      &kp LEFT         &kp DOWN           &kp RIGHT        &kp LBKT              &kp RBKT  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
-&trans           &kp DEL         &kp PG_UP        &kp CAPS           &kp PG_DN        &kp LPAR              &kp RPAR  &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &trans
-                 &trans          &trans           &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans    &kp KP_DOT            &kp N0          &mo 3
+// Row0
+&kp F1    &kp F2    &kp F3    &kp F4     &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
+// Row1
+&trans    &kp HOME  &kp PG_UP &kp UP     &kp END   &kp LBKT  &kp RBKT  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_PLUS   &trans
+// Row2
+&trans    &kp LEFT  &kp DOWN  &kp RIGHT  &kp INSERT &kp LPAR  &kp RPAR  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS  &kp KP_DIVIDE
+// Row3
+&trans    &kp DEL   &kp C_PREVIOUS &kp C_PLAY_PAUSE &kp C_NEXT &kp KP_DOT &kp KP_0  &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY &trans
+// Row4（親指）左5 + 右3
+        &trans  &trans  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans
+                                                &mkp MB1  &mkp MB2  &mkp MB3
             >;
         };
 
-        SYM {
-            bindings = <
-&kp F12  &kp F1         &kp F2     &kp F3             &kp F4            &kp F5         &kp F6                         &kp F7            &kp F8     &kp F9        &kp F10        &kp F11
-&trans   &kp EXCL       &kp AT     &kp HASH           &kp DLLR          &kp PRCNT                          &kp CARET  &kp AMPS          &kp STAR   &kp QUESTION  &kp SQT        &trans
-&trans   &kp PLUS       &kp EQUAL  &kp LPAR           &kp RPAR          &kp DQT                            &kp COLON  &kp LBKT          &kp RBKT   &kp LBRC      &kp RBRC       &trans
-&trans   &kp LESS_THAN  &kp PIPE   &kp MINUS          &kp GREATER_THAN  &kp BACKSLASH                      &kp GRAVE  &kp UNDERSCORE    &kp SLASH  &kp TILDE     &kp SEMICOLON  &trans
-         &mo 3          &trans     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &trans         &kt C_FAST_FORWARD             &kp C_PLAY_PAUSE             &trans
-            >;
-        };
-
+        // ───────────────────────────── Layer 3: ADJ（調整/システム） ─────────────────────────────
         ADJ {
             bindings = <
-&kp F12  &kp F1       &kp F2          &kp F3            &kp F4             &kp F5           &kp F6                &kp F7      &kp F8      &kp F9      &kp F10      &kp F11
-&trans   &sys_reset   &bt BT_PRV      &bt BT_NXT        &bt BT_CLR         &out OUT_TOG             &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   &trans
-&trans   &bootloader  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT         &kp C_MUTE               &bt BT_SEL 1  &mkp MB1    &mkp MB2    &mkp MB3    &bootloader  &trans
-&trans   &studio_unlock       &mo 5           &mo 4             &kp C_VOLUME_DOWN  &kp C_VOLUME_UP          &bt BT_SEL 2  &trans      &mo 4       &mo 5       &trans       &trans
-         &trans       &trans          &trans            &trans             &trans           &trans                &trans                  &trans
-            >;
-        };
-
-        SNIP {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mo 5   &trans  &trans  &trans          &trans  &trans    &trans    &mo 5     &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
-            >;
-        };
-
-        SCROLL {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
+// Row0
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+// Row1e
+&trans  &kp NUM_LOCK  &kp CAPS_LOCK  &kp SCROLL_LOCK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+// Row2
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+// Row3
+&bootloader /* 残す推奨 */  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+// Row4（親指）左5 + 右3
+        &trans  &trans  &trans  &trans  &trans
+                                                &kp BACKSPACE  &kp ENTER  &studio_unlock /* ▽: Studioロック解除 */
             >;
         };
     };

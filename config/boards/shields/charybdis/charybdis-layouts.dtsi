@@ -1,0 +1,92 @@
+// charybdis-layouts.dtsi
+// 目的: ZMK Studio対応の「物理レイアウト」定義。
+// ポイント:
+// - #include <physical_layouts.dtsi> が必須（keys用の型定義）
+// - compatible = "zmk,physical-layout"
+// - transform = <&default_transform>;  ← 既存の matrix_transform を使う
+// - keys = <...>; ← Studio必須。keymapの並び順と同じ数・順序で定義
+//
+// ここでは 12x5 変換のうち最下段は 8キー（col: 1,2,3,4,5,6,8,10）
+// 1u=100（センチ・キー単位）で大まかにグリッド配置。
+// 後で https://zmk-physical-layout-converter.streamlit.app/ を使って微調整推奨。
+
+#include <physical_layouts.dtsi>
+
+ /{
+   charybdis_46_layout: charybdis_46_layout {
+     compatible = "zmk,physical-layout";
+     display-name = "Charybdis 4x6 (wireless)";
+     // 既存の matrix_transform を利用
+     transform = <&default_transform>;
+
+     // w h x y rot rx ry（単位はドキュメント参照）
+     // 上4段は 12 列フル、最下段は実キーポジのみ（合計 56 個）
+     keys =
+       // row 0 (12個)
+         <&key_physical_attrs 100 100    0    0 0 0 0>
+       , <&key_physical_attrs 100 100  100    0 0 0 0>
+       , <&key_physical_attrs 100 100  200    0 0 0 0>
+       , <&key_physical_attrs 100 100  300    0 0 0 0>
+       , <&key_physical_attrs 100 100  400    0 0 0 0>
+       , <&key_physical_attrs 100 100  500    0 0 0 0>
+       , <&key_physical_attrs 100 100  600    0 0 0 0>
+       , <&key_physical_attrs 100 100  700    0 0 0 0>
+       , <&key_physical_attrs 100 100  800    0 0 0 0>
+       , <&key_physical_attrs 100 100  900    0 0 0 0>
+       , <&key_physical_attrs 100 100 1000    0 0 0 0>
+       , <&key_physical_attrs 100 100 1100    0 0 0 0>
+
+       // row 1 (12個)
+       , <&key_physical_attrs 100 100    0  100 0 0 0>
+       , <&key_physical_attrs 100 100  100  100 0 0 0>
+       , <&key_physical_attrs 100 100  200  100 0 0 0>
+       , <&key_physical_attrs 100 100  300  100 0 0 0>
+       , <&key_physical_attrs 100 100  400  100 0 0 0>
+       , <&key_physical_attrs 100 100  500  100 0 0 0>
+       , <&key_physical_attrs 100 100  600  100 0 0 0>
+       , <&key_physical_attrs 100 100  700  100 0 0 0>
+       , <&key_physical_attrs 100 100  800  100 0 0 0>
+       , <&key_physical_attrs 100 100  900  100 0 0 0>
+       , <&key_physical_attrs 100 100 1000  100 0 0 0>
+       , <&key_physical_attrs 100 100 1100  100 0 0 0>
+
+       // row 2 (12個)
+       , <&key_physical_attrs 100 100    0  200 0 0 0>
+       , <&key_physical_attrs 100 100  100  200 0 0 0>
+       , <&key_physical_attrs 100 100  200  200 0 0 0>
+       , <&key_physical_attrs 100 100  300  200 0 0 0>
+       , <&key_physical_attrs 100 100  400  200 0 0 0>
+       , <&key_physical_attrs 100 100  500  200 0 0 0>
+       , <&key_physical_attrs 100 100  600  200 0 0 0>
+       , <&key_physical_attrs 100 100  700  200 0 0 0>
+       , <&key_physical_attrs 100 100  800  200 0 0 0>
+       , <&key_physical_attrs 100 100  900  200 0 0 0>
+       , <&key_physical_attrs 100 100 1000  200 0 0 0>
+       , <&key_physical_attrs 100 100 1100  200 0 0 0>
+
+       // row 3 (12個)
+       , <&key_physical_attrs 100 100    0  300 0 0 0>
+       , <&key_physical_attrs 100 100  100  300 0 0 0>
+       , <&key_physical_attrs 100 100  200  300 0 0 0>
+       , <&key_physical_attrs 100 100  300  300 0 0 0>
+       , <&key_physical_attrs 100 100  400  300 0 0 0>
+       , <&key_physical_attrs 100 100  500  300 0 0 0>
+       , <&key_physical_attrs 100 100  600  300 0 0 0>
+       , <&key_physical_attrs 100 100  700  300 0 0 0>
+       , <&key_physical_attrs 100 100  800  300 0 0 0>
+       , <&key_physical_attrs 100 100  900  300 0 0 0>
+       , <&key_physical_attrs 100 100 1000  300 0 0 0>
+       , <&key_physical_attrs 100 100 1100  300 0 0 0>
+
+       // row 4 (8個)  ← 使う列だけ：1 2 3 4 5 6 8 10
+       , <&key_physical_attrs 100 100  100  400 0 0 0>
+       , <&key_physical_attrs 100 100  200  400 0 0 0>
+       , <&key_physical_attrs 100 100  300  400 0 0 0>
+       , <&key_physical_attrs 100 100  400  400 0 0 0>
+       , <&key_physical_attrs 100 100  500  400 0 0 0>
+       , <&key_physical_attrs 100 100  600  400 0 0 0>
+       , <&key_physical_attrs 100 100  800  400 0 0 0>
+       , <&key_physical_attrs 100 100 1000  400 0 0 0>
+       ;
+   };
+ };

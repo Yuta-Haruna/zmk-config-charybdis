@@ -36,7 +36,7 @@
 &kp LANGUAGE_5  &kp Q          &kp W         &kp E          &kp R             &kp T                    &kp Y  &kp U          &kp I   &kp O         &kp P       &kp INT_YEN
 &kp TAB         &kp A          &kp S         &kp D          &kp F             &kp G                    &kp H  &kp J          &kp K   &kp L         &kp SEMI    &lt 2 LANG1
 &kp LEFT_SHIFT  &kp Z          &kp X          &kp C             &kp V                    &kp B  &kp N          &kp M   &kp KP_COMMA  &kp KP_DOT  &kp KP_SLASH　&kp RIGHT_SHIFT
-                &kp BACKSLASH  &kp LEFT_ALT  &lt NAV SPACE  &lt ADJ INT_KANA  &kp LCTRL  &kp LEFT_ALT         &kp BACKSPACE          &kp KP_ENTER
+&kp BACKSLASH  &kp LEFT_ALT  &lt NAV SPACE  &lt ADJ INT_KANA  &kp LCTRL  &kp LGUI         &kp BACKSPACE          &kp KP_ENTER
             >;
         };
 

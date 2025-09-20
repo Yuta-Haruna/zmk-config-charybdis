@@ -5,11 +5,10 @@
 #include <physical_layouts.dtsi>
 
 / {
-    charybdis_physical_layout: charybdis_physical_layout {
-        compatible = "zmk,physical-layout";
-        display-name = "Charybdis 5x6";
-
-        kscan = <&kscan0>;
+   charybdis_46_default: charybdis_46_default {
+     compatible = "zmk,physical-layout";
+     display-name = "Charybdis 4x6 (wireless)";
+     // 既存の matrix_transform を利用
         transform = <&default_transform>;
 
         keys

@@ -52,21 +52,21 @@
 
         Mouse_Num {
             bindings = <
-&kp ESC  &kp F1    &kp F2          &kp F3             &kp F4           &kp F5      &kp F6              &kp F7          &kp F8    &kp F9           &kp F10          &kp F11
-&trans   &kp HOME  &kp PG_UP       &kp UP             &kp END          &kp LBKT              &kp RBKT  &kp KP_N7       &kp HOME  &kp KP_N9        &kp KP_PLUS      &kp F12
-&trans   &kp LEFT  &kp DOWN        &kp RIGHT          &kp INSERT       &kp LPAR              &kp RPAR  &mkp LCLK       &kp UP    &mkp RCLK        &kp KP_MINUS     &trans
-&trans   &kp DEL   &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_NEXT       &kp KP_DOT            &kp KP_0  &kp LEFT_ARROW  &kp DOWN  &kp RIGHT_ARROW  &kp KP_MULTIPLY  &trans
-         &trans    &trans          &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans      &mkp MB1            &mkp MB2                  &mkp MB3
+&kp ESC  &kp F1    &kp F2          &kp F3             &kp F4           &kp F5      &kp F6                 &kp F7              &kp F8    &kp F9               &kp F10   &kp F11
+&trans   &kp HOME  &kp PG_UP       &kp UP             &kp END          &kp LBKT            &kp PAGE_UP    &kp LA(LEFT_ARROW)  &kp HOME  &kp LA(RIGHT_ARROW)  &none     &kp F12
+&trans   &kp LEFT  &kp DOWN        &kp RIGHT          &kp INSERT       &kp LPAR            &kp PAGE_DOWN  &mkp LCLK           &kp UP    &mkp RCLK            &mkp MB3  &trans
+&trans   &kp DEL   &kp C_PREVIOUS  &kp C_PLAY_PAUSE   &kp C_NEXT       &kp KP_DOT          &kp END        &kp LEFT_ARROW      &kp DOWN  &kp RIGHT_ARROW      &none     &trans
+         &trans    &trans          &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans      &trans                 &trans                        &trans
             >;
         };
 
         ADJ {
             bindings = <
-&trans       &trans        &trans         &trans           &trans  &trans  &trans                 &trans     &trans  &trans          &trans  &trans
-&trans       &kp NUM_LOCK  &kp CAPS_LOCK  &kp SCROLL_LOCK  &trans  &trans                 &trans  &trans     &trans  &trans          &trans  &trans
-&trans       &trans        &trans         &trans           &trans  &trans                 &trans  &trans     &trans  &trans          &trans  &trans
-&bootloader  &trans        &trans         &trans           &trans  &trans                 &trans  &trans     &trans  &trans          &trans  &trans
-             &trans        &trans         &trans           &trans  &trans  &kp BACKSPACE          &kp ENTER          &studio_unlock
+&trans       &trans  &trans  &trans  &trans  &trans  &trans                 &trans     &trans  &trans          &trans  &trans
+&trans       &none   &none   &none   &trans  &trans                 &trans  &trans     &trans  &trans          &trans  &trans
+&trans       &trans  &trans  &trans  &trans  &trans                 &trans  &trans     &trans  &trans          &trans  &trans
+&bootloader  &trans  &trans  &trans  &trans  &trans                 &trans  &trans     &trans  &trans          &trans  &trans
+             &trans  &trans  &trans  &trans  &trans  &kp BACKSPACE          &kp ENTER          &studio_unlock
             >;
         };
     };

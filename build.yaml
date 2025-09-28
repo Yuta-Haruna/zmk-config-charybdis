@@ -2,6 +2,13 @@ include:
   - board: nice_nano
     shield: charybdis_left      # ← 反対側）
   - board: nice_nano
-    snippet: studio-rpc-usb-uart       # ← Studio用RPCをUSB/UARTで有効化
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n  # ← Studio機能ON
+    cmake-args: >
+      -DSNIPPET="studio-rpc-usb-uart;zmk-usb-logging"
+      -DCONFIG_ZMK_STUDIO=y
+      -DCONFIG_ZMK_STUDIO_LOCKING=n
     shield: charybdis_right   # ← 中央（ホスト/BLE名が出る側）
+
+
+      # -DSNIPPET="studio-rpc-usb-uart;zmk-usb-logging" # ← Studio用RPCをUSB/UARTで有効化とログ出力
+      # -DCONFIG_ZMK_STUDIO=y # ← Studio用RPCをUSB/UARTで有効化
+      # -DCONFIG_ZMK_STUDIO_LOCKING=n

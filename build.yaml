@@ -8,6 +8,9 @@ include:
       -DCONFIG_ZMK_STUDIO_LOCKING=n
     shield: charybdis_right   # ← 中央（ホスト/BLE名が出る側）
 
+ # クリーナー：全設定リセット専用ファーム（左右どちらにも使える）
+  - board: nice_nano
+    shield: settings_reset
 
       # -DSNIPPET="studio-rpc-usb-uart;zmk-usb-logging" # ← Studio用RPCをUSB/UARTで有効化とログ出力
       # -DCONFIG_ZMK_STUDIO=y # ← Studio用RPCをUSB/UARTで有効化

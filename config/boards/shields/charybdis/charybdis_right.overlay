@@ -50,8 +50,8 @@
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
         /*   optional features   */
-        snipe-layers = <4>;
-        scroll-layers = <5>;
+        snipe-layers = <6>;        // 存在しないレイヤーを指定=snipe無効(scrollと衝突させない)
+        scroll-layers = <4>;       // レイヤー4が最上位でアクティブな間だけスクロール
         /* automouse-layer = <4>; */
     };
 };

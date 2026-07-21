@@ -55,7 +55,7 @@
         Mouse_Num {
             bindings = <
 &kp ESC  &kp F1            &kp F2        &kp F3        &kp F4        &kp F5             &kp F6                 &kp F7              &kp F8    &kp F9               &kp F10   &kp F11
-&trans   &kp LEFT_BRACKET  &kp N7        &kp N8        &kp N9        &kp RIGHT_BRACKET          &kp PAGE_UP    &kp LA(LEFT_ARROW)  &kp HOME  &kp LA(RIGHT_ARROW)  &none     &kp F12
+&trans   &kp LEFT_BRACKET  &kp N7        &kp N8        &kp N9        &kp RIGHT_BRACKET          &kp PAGE_UP    &kp LA(LEFT_ARROW)  &kp HOME  &kp LA(RIGHT_ARROW)  &mo 4     &kp F12
 &trans   &kp SLASH         &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS                  &kp PAGE_DOWN  &mkp LCLK           &kp UP    &mkp RCLK            &mkp MB3  &trans
 &trans   &kp ASTERISK      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS                   &kp END        &kp LEFT_ARROW      &kp DOWN  &kp RIGHT_ARROW      &none     &trans
          &kp EQUAL         &trans        &kp N0        &kp PERIOD    &trans             &trans                 &trans                        &trans
@@ -69,6 +69,19 @@
 &trans       &kp SCROLLLOCK  &trans  &trans          &trans        &trans          &trans     &kp LC(PLUS)       &kp LC(N0)  &kp LG(MINUS)    &trans     &trans
 &bootloader  &trans          &trans  &bt BT_CLR_ALL  &bt BT_SEL 0  &trans          &trans     &kp C_VOLUME_DOWN  &kp K_MUTE  &kp C_VOLUME_UP  &kp LG(H)  &kp LG(RS(S))
              &trans          &trans  &trans          &trans        &trans  &trans             &trans                         &trans
+            >;
+        };
+
+        // index 4:スクロール層。Mouse_Num のコピー(クリック等はそのまま使える)。
+        // このレイヤーが最上位でアクティブな間だけ、ドライバがボール移動を
+        // スクロールに変換する(overlay の scroll-layers = <4> と対応)。
+        SCROLL {
+            bindings = <
+&kp ESC  &kp F1            &kp F2        &kp F3        &kp F4        &kp F5             &kp F6                 &kp F7              &kp F8    &kp F9               &kp F10   &kp F11
+&trans   &kp LEFT_BRACKET  &kp N7        &kp N8        &kp N9        &kp RIGHT_BRACKET          &kp PAGE_UP    &kp LA(LEFT_ARROW)  &kp HOME  &kp LA(RIGHT_ARROW)  &trans    &kp F12
+&trans   &kp SLASH         &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS                  &kp PAGE_DOWN  &mkp LCLK           &kp UP    &mkp RCLK            &mkp MB3  &trans
+&trans   &kp ASTERISK      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS                   &kp END        &kp LEFT_ARROW      &kp DOWN  &kp RIGHT_ARROW      &none     &trans
+         &kp EQUAL         &trans        &kp N0        &kp PERIOD    &trans             &trans                 &trans                        &trans
             >;
         };
     };
